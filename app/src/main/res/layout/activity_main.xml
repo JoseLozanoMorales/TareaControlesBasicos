@@ -85,6 +85,7 @@
         app:layout_constraintVertical_bias="0.041" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="377dp"
         android:layout_height="54dp"
         android:layout_marginTop="6dp"
@@ -100,5 +101,18 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btBoton"
+        android:layout_width="374dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:text="Foto de perfil"
+        app:icon="@drawable/camera"
+        app:iconSize="22dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
