@@ -84,15 +84,16 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNombre"
         app:layout_constraintVertical_bias="0.041" />
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="377dp"
         android:layout_height="54dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="40dp"
         android:hint="Correo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/txtCiudad"
         app:startIconDrawable="@drawable/gmail">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -106,13 +107,49 @@
         android:id="@+id/btBoton"
         android:layout_width="374dp"
         android:layout_height="48dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="16dp"
         android:text="Foto de perfil"
         app:icon="@drawable/camera"
         app:iconSize="22dp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSexo"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber">
+
+        <RadioButton
+            android:id="@+id/radioMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino (M)" />
+
+        <RadioButton
+            android:id="@+id/radioFemenino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Femenino (F)" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/txtCiudad"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Ciudad"
+        android:inputType="text"
+        android:maxLength="200"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupSexo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupSexo"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSexo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

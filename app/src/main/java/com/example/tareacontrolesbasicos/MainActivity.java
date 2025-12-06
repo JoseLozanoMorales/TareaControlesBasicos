@@ -1,10 +1,14 @@
 package com.example.tareacontrolesbasicos;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private EditText editTextNumber;
+    private RadioGroup radioGroupSexo;
+    private RadioButton radioMasculino;
+    private RadioButton radioFemenino;
+
+    private EditText txtCiudad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +72,31 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 editTextNumber.setEnabled(false);
                 editTextNumber.setText("");
+            }
+        });
+
+        radioGroupSexo = findViewById(R.id.radioGroupSexo);
+        radioMasculino = findViewById(R.id.radioMasculino);
+        radioFemenino = findViewById(R.id.radioFemenino);
+
+        txtCiudad = findViewById(R.id.txtCiudad);
+
+        txtCiudad.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String upper = s.toString().toUpperCase();
+                if (!upper.equals(s.toString())) {
+                    txtCiudad.removeTextChangedListener(this);
+                    txtCiudad.setText(upper);
+                    txtCiudad.setSelection(upper.length());
+                    txtCiudad.addTextChangedListener(this);
+                }
             }
         });
 
