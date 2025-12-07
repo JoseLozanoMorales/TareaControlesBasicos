@@ -99,7 +99,39 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        // ---------- SPINNER DÍA ----------
+        Spinner spinnerdia = findViewById(R.id.spnDia);
+        String[] datosDias = new String[32];
+        datosDias[0] = "Día";
+        for (int i = 1; i <= 31; i++) {
+            datosDias[i] = String.valueOf(i);
+        }
+        ArrayAdapter<String> adapterdia = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosDias);
+        spinnerdia.setAdapter(adapterdia);
 
+
+        // ---------- SPINNER MES ----------
+        Spinner spinnermes = findViewById(R.id.spnMes);
+        String[] datosMes = new String[13];
+        datosMes[0] = "Mes";
+        for (int i = 1; i <= 12; i++) {
+            datosMes[i] = String.valueOf(i);
+        }
+        ArrayAdapter<String> adaptermes = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosMes);
+        spinnermes.setAdapter(adaptermes);
+
+
+        // ---------- SPINNER AÑO ----------
+        Spinner spinneraño = findViewById(R.id.spnAño);
+        int inicio = 1990;
+        int fin = 2030;
+        String[] datosAño = new String[(fin - inicio) + 2];
+        datosAño[0] = "Año";
+        for (int i = 1; i < datosAño.length; i++) {
+            datosAño[i] = String.valueOf(inicio + (i - 1));
+        }
+        ArrayAdapter<String> adapteraño = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosAño);
+        spinneraño.setAdapter(adapteraño);
     }
 
 }

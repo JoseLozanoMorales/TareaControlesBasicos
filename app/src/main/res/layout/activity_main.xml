@@ -7,21 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/spnDia"
+        android:layout_width="105dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/spnMes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spnMes"
+        tools:listitem="@android:layout/simple_list_item_1" />
+
+    <TextView
+        android:id="@+id/lblFechaNacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Fecha Nacimiento"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <Spinner
+        android:id="@+id/spnAño"
+        android:layout_width="105dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spnMes"
+        app:layout_constraintTop_toTopOf="@+id/spnMes" />
+
+    <Spinner
+        android:id="@+id/spnMes"
+        android:layout_width="105dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/spnAño"
+        app:layout_constraintStart_toEndOf="@+id/spnDia"
+        app:layout_constraintTop_toBottomOf="@+id/lblFechaNacimiento" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="250dp"
         android:layout_height="35dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="2dp"
         android:text="Registro de Usuarios"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -33,18 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/uteqimage1" />
-
-    <EditText
-        android:id="@+id/txtNombre2"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Apellidos"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -59,17 +89,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre2" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -78,18 +97,15 @@
         android:layout_marginTop="8dp"
         android:entries="@android:array/emailAddressTypes"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
-        app:layout_constraintVertical_bias="0.041" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tilApellido" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="377dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
         android:hint="Correo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,10 +123,11 @@
         android:id="@+id/btBoton"
         android:layout_width="374dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Foto de perfil"
         app:icon="@drawable/camera"
         app:iconSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
@@ -119,12 +136,12 @@
         android:id="@+id/radioGroupSexo"
         android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnMes">
 
         <RadioButton
             android:id="@+id/radioMasculino"
@@ -143,13 +160,48 @@
         android:id="@+id/txtCiudad"
         android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:hint="Ciudad"
         android:inputType="text"
         android:maxLength="200"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroupSexo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/radioGroupSexo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupSexo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNombre"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/user" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilApellido"
+        android:layout_width="371dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:hint="Apellido"
+        app:layout_constraintEnd_toEndOf="@+id/tilNombre"
+        app:layout_constraintStart_toStartOf="@+id/tilNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tilNombre"
+        app:startIconDrawable="@drawable/user">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
