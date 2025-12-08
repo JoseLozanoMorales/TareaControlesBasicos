@@ -1,5 +1,6 @@
 package com.example.tareacontrolesbasicos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -134,4 +136,21 @@ public class MainActivity extends AppCompatActivity {
         spinneraño.setAdapter(adapteraño);
     }
 
+    public void Enviar(View view)
+    {
+        EditText txtNombre = findViewById(R.id.txtNombre);
+
+        if(!txtNombre.getText().toString().isEmpty())
+        {
+            Intent intent = new Intent(this, Menu.class);
+            Bundle b = new Bundle();
+
+            b.putString("NOMBRE", txtNombre.getText().toString());
+            intent.putExtras(b);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Debe ingresar su nombre", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
