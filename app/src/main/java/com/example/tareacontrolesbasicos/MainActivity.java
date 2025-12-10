@@ -19,6 +19,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         spinner = findViewById(R.id.spinner);
-        editTextNumber = findViewById(R.id.editTextNumber);
+        editTextNumber = findViewById(R.id.txtIdentificacion);
         editTextNumber.setEnabled(false);
 
         String[] opciones = new String[]{

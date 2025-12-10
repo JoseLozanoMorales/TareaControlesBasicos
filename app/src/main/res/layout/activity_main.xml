@@ -11,10 +11,9 @@
         android:id="@+id/spnDia"
         android:layout_width="105dp"
         android:layout_height="47dp"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/spnMes"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toTopOf="@+id/spnMes"
         tools:listitem="@android:layout/simple_list_item_1" />
 
@@ -22,21 +21,19 @@
         android:id="@+id/lblFechaNacimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="Fecha Nacimiento"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Spinner
         android:id="@+id/spnAño"
         android:layout_width="105dp"
         android:layout_height="47dp"
         android:layout_marginStart="9dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toEndOf="@+id/spnMes"
         app:layout_constraintTop_toTopOf="@+id/spnMes" />
 
@@ -76,39 +73,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/uteqimage1" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="number"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:startIconDrawable="@drawable/cedula">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtIdentificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="375dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:entries="@android:array/emailAddressTypes"
         android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tilApellido"
         app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tilApellido"
         app:layout_constraintTop_toBottomOf="@+id/tilApellido" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="Correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtCiudad"
+        app:layout_constraintStart_toStartOf="@+id/txtCiudad"
         app:layout_constraintTop_toBottomOf="@+id/txtCiudad"
         app:startIconDrawable="@drawable/gmail">
 
@@ -121,18 +125,15 @@
 
     <Button
         android:id="@+id/btBoton"
-        android:layout_width="374dp"
+        android:layout_width="375dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:text="Foto de perfil"
         app:icon="@drawable/camera"
         app:iconSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <RadioGroup
         android:id="@+id/radioGroupSexo"
@@ -140,9 +141,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/spnMes">
 
         <RadioButton
@@ -166,8 +167,8 @@
         android:hint="Ciudad"
         android:inputType="text"
         android:maxLength="200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupSexo"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupSexo"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupSexo" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -191,7 +192,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilApellido"
-        android:layout_width="371dp"
+        android:layout_width="375dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:hint="Apellido"
@@ -210,7 +211,7 @@
         android:id="@+id/btnIngresar"
         android:layout_width="127dp"
         android:layout_height="53dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:background="#32C738"
         android:backgroundTint="#8BC34A"
         android:foregroundTint="#8BC34A"
@@ -220,9 +221,8 @@
         android:textColorLink="#4CAF50"
         app:icon="@drawable/iconosesion"
         app:iconGravity="end"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btBoton"
+        app:layout_constraintStart_toStartOf="@+id/btBoton"
         app:layout_constraintTop_toBottomOf="@+id/btBoton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
