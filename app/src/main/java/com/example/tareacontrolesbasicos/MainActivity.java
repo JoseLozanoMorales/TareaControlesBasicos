@@ -1,5 +1,6 @@
 package com.example.tareacontrolesbasicos;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -7,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,8 +21,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroupSexo;
     private RadioButton radioMasculino;
     private RadioButton radioFemenino;
+    private EditText etDia;
 
+    private EditText txtNombre;
     private EditText txtCiudad;
 
     @Override
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        etDia = findViewById(R.id.etDia);
+        etDia.setOnClickListener(v -> showDatePickerDialog());
+
+        txtNombre = findViewById(R.id.txtNombre);
         spinner = findViewById(R.id.spinner);
         editTextNumber = findViewById(R.id.txtIdentificacion);
         editTextNumber.setEnabled(false);
@@ -103,45 +109,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        // ---------- SPINNER DÍA ----------
-        Spinner spinnerdia = findViewById(R.id.spnDia);
-        String[] datosDias = new String[32];
-        datosDias[0] = "Día";
-        for (int i = 1; i <= 31; i++) {
-            datosDias[i] = String.valueOf(i);
-        }
-        ArrayAdapter<String> adapterdia = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosDias);
-        spinnerdia.setAdapter(adapterdia);
 
 
-        // ---------- SPINNER MES ----------
-        Spinner spinnermes = findViewById(R.id.spnMes);
-        String[] datosMes = new String[13];
-        datosMes[0] = "Mes";
-        for (int i = 1; i <= 12; i++) {
-            datosMes[i] = String.valueOf(i);
-        }
-        ArrayAdapter<String> adaptermes = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosMes);
-        spinnermes.setAdapter(adaptermes);
+    }
 
+    private void showDatePickerDialog() {
+        DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                onDateSelected(day, month + 1, year);
+            }
+        }).show(getSupportFragmentManager(), "datePicker");
+    }
 
-        // ---------- SPINNER AÑO ----------
-        Spinner spinneraño = findViewById(R.id.spnAño);
-        int inicio = 1990;
-        int fin = 2030;
-        String[] datosAño = new String[(fin - inicio) + 2];
-        datosAño[0] = "Año";
-        for (int i = 1; i < datosAño.length; i++) {
-            datosAño[i] = String.valueOf(inicio + (i - 1));
-        }
-        ArrayAdapter<String> adapteraño = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datosAño);
-        spinneraño.setAdapter(adapteraño);
+    public void onDateSelected(int day, int month, int year){
+        etDia.setText(day + "/" + month + "/" + year);
     }
 
     public void Enviar(View view)
     {
-        EditText txtNombre = findViewById(R.id.txtNombre);
-
         if(!txtNombre.getText().toString().isEmpty())
         {
             Intent intent = new Intent(this, Menu.class);
